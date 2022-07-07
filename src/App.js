@@ -3,10 +3,16 @@ import Button from "./components/Button";
 import SingleFeature from "./components/SingleFeature";
 import DoubleFeature from "./components/DoubleFeature";
 import Footer from "./components/Footer";
+import "./css/style.css";
+import editorDesktopImg from "./assets/illustration-editor-desktop.svg";
+import phonesDesktopImg from "./assets/illustration-phones.svg";
+import laptopDesktopImg from "./assets/illustration-laptop-desktop.svg";
 
 const App = () => {
   const SINGLE_FEATURE = "single";
   const DOUBLE_FEATURE = "double";
+  const NORMAL_DIRECTION = "normal-dir";
+  const REVERSE_DIRECTION = "reverse-dir";
 
   const navLinks = [
     {
@@ -32,12 +38,18 @@ const App = () => {
       bottomHeading: "Robust content management",
       bottomParagraph:
         "Flexible content management enables users to easily move through posts. Increase the usability of your blog by adding customized categories, sections, format, or flow. With this functionality, you're in full control.",
+      imgSrc: editorDesktopImg,
+      imgAlt: "editor-desktop",
+      direction: NORMAL_DIRECTION,
     },
     {
       type: SINGLE_FEATURE,
       heading: "State of the Art Infrastructure",
       paragraph:
         "With reliability and speed in mind, worldwide data centers provide the backbone for ultra-fast connectivity. This ensures your site will load instantly, no matter where your readers are, keeping your site competitive.",
+      imgSrc: phonesDesktopImg,
+      imgAlt: "phones-desktop",
+      direction: REVERSE_DIRECTION,
     },
     {
       type: DOUBLE_FEATURE,
@@ -47,6 +59,9 @@ const App = () => {
       bottomHeading: "Powerful tooling",
       bottomParagraph:
         "Batteries included. We built a simple and straightforward CLI tool that makes customization and deployment a breeze, but capable of producing even the most complicated sites.",
+      imgSrc: laptopDesktopImg,
+      imgAlt: "laptop-desktop",
+      direction: REVERSE_DIRECTION,
     },
   ];
 
@@ -59,6 +74,9 @@ const App = () => {
             block={block}
             heading={feature.heading}
             paragraph={feature.paragraph}
+            imgSrc={feature.imgSrc}
+            imgAlt={feature.imgAlt}
+            direction={feature.direction}
           />
         );
       else if (type === DOUBLE_FEATURE)
@@ -69,6 +87,9 @@ const App = () => {
             topParagraph={feature.topParagraph}
             bottomHeading={feature.bottomHeading}
             bottomParagraph={feature.bottomParagraph}
+            imgSrc={feature.imgSrc}
+            imgAlt={feature.imgAlt}
+            direction={feature.direction}
           />
         );
       else return <></>;

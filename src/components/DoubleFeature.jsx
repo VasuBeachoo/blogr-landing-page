@@ -6,9 +6,14 @@ const DoubleFeature = ({
   topParagraph,
   bottomHeading,
   bottomParagraph,
+  imgSrc,
+  imgAlt,
+  direction,
 }) => {
   return (
-    <div className={`${block}__double-feature`}>
+    <div
+      className={`${block}__double-feature ${block}__double-feature--${direction}`}
+    >
       <div className={`${block}__text-container`}>
         <TextBlock
           block={block}
@@ -21,7 +26,7 @@ const DoubleFeature = ({
           paragraph={bottomParagraph}
         />
       </div>
-      <div className={`${block}__img-container`}></div>
+      <img src={imgSrc} alt={imgAlt} className={`${block}__img`} />
     </div>
   );
 };
