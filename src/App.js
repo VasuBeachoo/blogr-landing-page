@@ -13,6 +13,8 @@ const App = () => {
   const DOUBLE_FEATURE = "double";
   const NORMAL_DIRECTION = "normal-dir";
   const REVERSE_DIRECTION = "reverse-dir";
+  const SOLID_BTN = "solid";
+  const LIGHT_BTN = "light";
 
   const navLinks = [
     {
@@ -100,14 +102,14 @@ const App = () => {
     <div className="page-container">
       <div className="page">
         <section className="intro">
-          <Header dropdowns={navLinks} />
-          <h1 className="intro__header">A modern publishing platform</h1>
+          <Header dropdowns={navLinks} btnType={SOLID_BTN} />
+          <h1 className="intro__heading">A modern publishing platform</h1>
           <p className="intro__paragraph">
             Grow your audience and build your online brand
           </p>
           <div className="intro__btn-container">
-            <Button block="intro" text="Start For Free" />
-            <Button block="intro" text="Learn More" />
+            <Button block="intro" text="Start For Free" type={SOLID_BTN} />
+            <Button block="intro" text="Learn More" type={LIGHT_BTN} />
           </div>
         </section>
         <section className="features">

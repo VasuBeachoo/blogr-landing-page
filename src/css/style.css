@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@300;600&family=Ubuntu:wght@400;500;700&display=swap");
 body {
   margin: 0;
 }
@@ -32,6 +33,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  background-color: white;
 }
 
 .intro {
@@ -48,7 +50,64 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   width: 100%;
+  background: -webkit-gradient(linear, left top, right top, from(#ff8f70), to(#ff3d54));
+  background: linear-gradient(90deg, #ff8f70, #ff3d54);
+}
+
+.intro__heading {
+  font-family: "Overpass", sans-serif;
+  font-weight: 600;
+  margin: 0;
+  color: white;
+}
+
+.intro__paragraph {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  margin: 0;
+  color: white;
+  opacity: 0.7;
+}
+
+.intro__btn {
+  all: unset;
+  text-align: center;
+  font-family: "Overpass", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  border: 2px solid white;
+  border-radius: 30px;
+  width: 125px;
+  padding: 7px 0;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+}
+
+.intro__btn:hover {
+  cursor: pointer;
+}
+
+.intro__btn--solid {
+  background-color: white;
+  color: #ff3d54;
+}
+
+.intro__btn--solid:hover {
+  background: none;
+  color: white;
+}
+
+.intro__btn--light {
+  background: none;
+  color: white;
+}
+
+.intro__btn--light:hover {
+  background-color: white;
+  color: #ff3d54;
 }
 
 .header {
@@ -65,7 +124,15 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   width: 100%;
+  padding: 50px 120px;
+}
+
+.header__logo {
+  width: 90px;
+  margin: 0 70px 0 0;
 }
 
 .header__dropdowns {
@@ -82,6 +149,45 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: 290px;
+}
+
+.header__dropdown-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header__dropdown-title {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  margin: 0;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  color: white;
+  opacity: 0.7;
+  font-size: 16px;
+  margin: 0 6px 0 0;
+}
+
+.header__dropdown-title:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.header__dropdown-title:hover {
+  opacity: 1;
 }
 
 .header__links {
@@ -98,6 +204,67 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: 190px;
+  margin: 0 0 0 auto;
+}
+
+.header__link {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  margin: 0;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  color: white;
+  opacity: 0.7;
+  font-size: 16px;
+}
+
+.header__link:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.header__link:hover {
+  opacity: 1;
+}
+
+.header__btn {
+  all: unset;
+  text-align: center;
+  font-family: "Overpass", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  border: 2px solid white;
+  border-radius: 30px;
+  width: 125px;
+  padding: 7px 0;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+}
+
+.header__btn:hover {
+  cursor: pointer;
+}
+
+.header__btn--solid {
+  background-color: white;
+  color: #ff3d54;
+}
+
+.header__btn--solid:hover {
+  background: none;
+  color: white;
+}
+
+.header__btn--light {
+  background: none;
+  color: white;
+}
+
+.header__btn--light:hover {
+  background-color: white;
+  color: #ff3d54;
 }
 
 .features {
@@ -114,7 +281,16 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   width: 100%;
+}
+
+.features__section-heading {
+  font-family: "Overpass", sans-serif;
+  font-weight: 600;
+  margin: 0;
+  color: #1f3f5b;
 }
 
 .features__text-block {
@@ -133,6 +309,18 @@ body {
           align-items: flex-start;
 }
 
+.features__text-block h3 {
+  font-family: "Overpass", sans-serif;
+  font-weight: 600;
+  margin: 0;
+}
+
+.features__text-block p {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  margin: 0;
+}
+
 .features__single-feature {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -143,6 +331,8 @@ body {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  background: -webkit-gradient(linear, left top, right top, from(#1f3f5b), to(#3f4164));
+  background: linear-gradient(90deg, #1f3f5b, #3f4164);
 }
 
 .features__single-feature--normal-dir {
@@ -157,6 +347,14 @@ body {
   -webkit-box-direction: reverse;
       -ms-flex-direction: row-reverse;
           flex-direction: row-reverse;
+}
+
+.features__single-feature h3 {
+  color: white;
+}
+
+.features__single-feature p {
+  color: #c8c8cb;
 }
 
 .features__double-feature {
@@ -185,6 +383,14 @@ body {
           flex-direction: row-reverse;
 }
 
+.features__double-feature h3 {
+  color: #1f3f5b;
+}
+
+.features__double-feature p {
+  color: #4b5862;
+}
+
 .footer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -199,7 +405,10 @@ body {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   width: 100%;
+  background-color: #25252d;
 }
 
 .footer__column {
@@ -216,5 +425,19 @@ body {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+}
+
+.footer__column-title {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  margin: 0;
+  color: white;
+}
+
+.footer__link {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  margin: 0;
+  color: #c8c8cb;
 }
 /*# sourceMappingURL=style.css.map */

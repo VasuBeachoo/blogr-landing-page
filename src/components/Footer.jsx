@@ -9,7 +9,7 @@ const Footer = ({ linkColumns }) => {
       <img src={logo} alt="logo" className={`${block}__logo`} />
       {linkColumns.map((column) => (
         <div className={`${block}__column`}>
-          <p className={`${block}__paragraph`}>{column.title}</p>
+          <p className={`${block}__column-title`}>{column.title}</p>
           {column.links.map((link) => (
             <Link block={block} text={link} />
           ))}

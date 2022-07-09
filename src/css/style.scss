@@ -1,8 +1,27 @@
 ///////////////////////////////////////
 // IMPORTS ////////////////////////////
 
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@300;600&family=Ubuntu:wght@400;500;700&display=swap");
+
 ///////////////////////////////////////
 // VARIABLES //////////////////////////
+
+$colors: (
+  Light-red-cta-text: hsl(356, 100%, 66%),
+  Very-light-red-cta-hover: hsl(355, 100%, 74%),
+  Very-dark-blue: hsl(208, 49%, 24%),
+  White: hsl(0, 0%, 100%),
+  Grayish-blue: hsl(240, 2%, 79%),
+  Very-dark-grayish-blue: hsl(207, 13%, 34%),
+  Very-dark-black-blue: hsl(240, 10%, 16%),
+  Very-light-red: hsl(13, 100%, 72%),
+  Light-red: hsl(353, 100%, 62%),
+  Very-dark-gray-blue: hsl(237, 17%, 21%),
+  Very-dark-desaturated-blue: hsl(237, 23%, 32%),
+);
+
+$heading-font: "Overpass", sans-serif;
+$body-font: "Ubuntu", sans-serif;
 
 ///////////////////////////////////////
 // MIXINS /////////////////////////////
@@ -15,7 +34,86 @@
 }
 
 @mixin section() {
+  box-sizing: border-box;
   width: 100%;
+}
+
+@mixin heading() {
+  font-family: $heading-font;
+  font-weight: 600;
+  margin: 0;
+}
+
+@mixin paragraph() {
+  font-family: $body-font;
+  font-weight: 400;
+  margin: 0;
+}
+
+@mixin link() {
+  font-family: $body-font;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  margin: 0;
+  transition: 0.2s;
+
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+
+@mixin link--header() {
+  color: color(White);
+  opacity: 0.7;
+  font-size: 16px;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+@mixin btn() {
+  all: unset;
+  text-align: center;
+  font-family: $heading-font;
+  font-size: 16px;
+  font-weight: 600;
+  border: 2px solid color(White);
+  border-radius: 30px;
+  width: 125px;
+  padding: 7px 0;
+  transition: 0.25s;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &--solid {
+    @include btn--solid();
+
+    &:hover {
+      @include btn--light();
+    }
+  }
+
+  &--light {
+    @include btn--light();
+
+    &:hover {
+      @include btn--solid();
+    }
+  }
+}
+
+@mixin btn--solid() {
+  background-color: color(White);
+  color: color(Light-red);
+}
+
+@mixin btn--light() {
+  background: none;
+  color: color(White);
 }
 
 @mixin feature() {
@@ -35,6 +133,10 @@
 ///////////////////////////////////////
 // FUNCTIONS //////////////////////////
 
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+
 ///////////////////////////////////////
 // STYLES /////////////////////////////
 
@@ -48,23 +150,68 @@ body {
 
 .page {
   @include flex(column, flex-start, center);
+  background-color: color(White);
 }
 
 .intro {
   @include flex(column, flex-start, center);
   @include section();
+  background: linear-gradient(90deg, color(Very-light-red), color(Light-red));
+
+  &__heading {
+    @include heading();
+    color: color(White);
+  }
+
+  &__paragraph {
+    @include paragraph();
+    color: color(White);
+    opacity: 0.7;
+  }
+
+  &__btn {
+    @include btn();
+  }
 }
 
 .header {
   @include flex(row, flex-start, center);
   @include section();
+  padding: 50px 120px;
+
+  &__logo {
+    width: 90px;
+    margin: 0 70px 0 0;
+  }
 
   &__dropdowns {
     @include flex(row, space-between, center);
+    width: 290px;
+  }
+
+  &__dropdown-container {
+    @include flex(row, flex-start, center);
+  }
+
+  &__dropdown-title {
+    @include link();
+    @include link--header();
+    margin: 0 6px 0 0;
   }
 
   &__links {
     @include flex(row, space-between, center);
+    width: 190px;
+    margin: 0 0 0 auto;
+  }
+
+  &__link {
+    @include link();
+    @include link--header();
+  }
+
+  &__btn {
+    @include btn();
   }
 }
 
@@ -72,24 +219,69 @@ body {
   @include flex(column, flex-start, center);
   @include section();
 
+  &__section-heading {
+    @include heading();
+    color: color(Very-dark-blue);
+  }
+
   &__text-block {
     @include flex(column, flex-start, flex-start);
+
+    h3 {
+      @include heading();
+    }
+
+    p {
+      @include paragraph();
+    }
   }
 
   &__single-feature {
     @include feature();
+    background: linear-gradient(
+      90deg,
+      color(Very-dark-blue),
+      color(Very-dark-desaturated-blue)
+    );
+
+    h3 {
+      color: color(White);
+    }
+
+    p {
+      color: color(Grayish-blue);
+    }
   }
 
   &__double-feature {
     @include feature();
+
+    h3 {
+      color: color(Very-dark-blue);
+    }
+
+    p {
+      color: color(Very-dark-grayish-blue);
+    }
   }
 }
 
 .footer {
   @include flex(row, space-between, flex-start);
   @include section();
+  background-color: color(Very-dark-black-blue);
 
   &__column {
     @include flex(column, flex-start, flex-start);
+  }
+
+  &__column-title {
+    @include paragraph();
+    color: color(White);
+  }
+
+  &__link {
+    @include paragraph();
+    color: color(Grayish-blue);
   }
 }
