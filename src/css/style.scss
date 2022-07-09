@@ -82,7 +82,7 @@ $body-font: "Ubuntu", sans-serif;
   border: 2px solid color(White);
   border-radius: 30px;
   width: 125px;
-  padding: 7px 0;
+  padding: 8px 0;
   transition: 0.25s;
 
   &:hover {
@@ -157,16 +157,27 @@ body {
   @include flex(column, flex-start, center);
   @include section();
   background: linear-gradient(90deg, color(Very-light-red), color(Light-red));
+  border-radius: 0 0 0 90px;
+  padding: 0 0 120px 0;
 
   &__heading {
     @include heading();
     color: color(White);
+    font-size: 47px;
+    margin: 40px 0 5px 0;
   }
 
   &__paragraph {
     @include paragraph();
     color: color(White);
     opacity: 0.7;
+    font-size: 18px;
+    margin: 0 0 40px 0;
+  }
+
+  &__btn-container {
+    @include flex(row, space-between, center);
+    width: 280px;
   }
 
   &__btn {
@@ -177,7 +188,7 @@ body {
 .header {
   @include flex(row, flex-start, center);
   @include section();
-  padding: 50px 120px;
+  padding: 50px 110px;
 
   &__logo {
     width: 90px;

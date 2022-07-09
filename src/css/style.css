@@ -55,6 +55,8 @@ body {
   width: 100%;
   background: -webkit-gradient(linear, left top, right top, from(#ff8f70), to(#ff3d54));
   background: linear-gradient(90deg, #ff8f70, #ff3d54);
+  border-radius: 0 0 0 90px;
+  padding: 0 0 120px 0;
 }
 
 .intro__heading {
@@ -62,6 +64,8 @@ body {
   font-weight: 600;
   margin: 0;
   color: white;
+  font-size: 47px;
+  margin: 40px 0 5px 0;
 }
 
 .intro__paragraph {
@@ -70,6 +74,25 @@ body {
   margin: 0;
   color: white;
   opacity: 0.7;
+  font-size: 18px;
+  margin: 0 0 40px 0;
+}
+
+.intro__btn-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 280px;
 }
 
 .intro__btn {
@@ -81,7 +104,7 @@ body {
   border: 2px solid white;
   border-radius: 30px;
   width: 125px;
-  padding: 7px 0;
+  padding: 8px 0;
   -webkit-transition: 0.25s;
   transition: 0.25s;
 }
@@ -127,7 +150,7 @@ body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   width: 100%;
-  padding: 50px 120px;
+  padding: 50px 110px;
 }
 
 .header__logo {
@@ -238,7 +261,7 @@ body {
   border: 2px solid white;
   border-radius: 30px;
   width: 125px;
-  padding: 7px 0;
+  padding: 8px 0;
   -webkit-transition: 0.25s;
   transition: 0.25s;
 }
