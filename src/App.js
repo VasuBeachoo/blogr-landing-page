@@ -68,11 +68,14 @@ const App = () => {
   ];
 
   function renderFeatures(block, features) {
+    let key = 0;
+
     return features.map((feature) => {
       const type = feature.type;
       if (type === SINGLE_FEATURE)
         return (
           <SingleFeature
+            key={key++}
             block={block}
             heading={feature.heading}
             paragraph={feature.paragraph}
@@ -84,6 +87,7 @@ const App = () => {
       else if (type === DOUBLE_FEATURE)
         return (
           <DoubleFeature
+            key={key++}
             block={block}
             topHeading={feature.topHeading}
             topParagraph={feature.topParagraph}

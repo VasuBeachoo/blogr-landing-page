@@ -23,6 +23,8 @@ $colors: (
 $heading-font: "Overpass", sans-serif;
 $body-font: "Ubuntu", sans-serif;
 
+$block-border-radius: 90px;
+
 ///////////////////////////////////////
 // MIXINS /////////////////////////////
 
@@ -47,7 +49,7 @@ $body-font: "Ubuntu", sans-serif;
 @mixin paragraph() {
   font-family: $body-font;
   font-weight: 400;
-  margin: 0;
+  max-width: 480px;
 }
 
 @mixin link() {
@@ -118,8 +120,9 @@ $body-font: "Ubuntu", sans-serif;
 
 @mixin feature() {
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
+  width: 100%;
+  margin: 40px 0;
 
   &--normal-dir {
     flex-direction: row;
@@ -127,6 +130,67 @@ $body-font: "Ubuntu", sans-serif;
 
   &--reverse-dir {
     flex-direction: row-reverse;
+  }
+}
+
+@mixin feature--double() {
+  justify-content: flex-end;
+  width: 155%;
+
+  h3 {
+    color: color(Very-dark-blue);
+    font-size: 23px;
+  }
+
+  p {
+    color: color(Very-dark-grayish-blue);
+    margin: 13px 5px 52px;
+  }
+
+  img {
+    width: 750px;
+    margin: 0 9vw;
+  }
+}
+
+@mixin text-block() {
+  @include flex(column, flex-start, flex-start);
+
+  h3 {
+    @include heading();
+  }
+
+  p {
+    @include paragraph();
+    font-size: 15px;
+    opacity: 0.8;
+    letter-spacing: 0.5px;
+    line-height: 25px;
+  }
+}
+
+@mixin feature--single() {
+  justify-content: center;
+  background: linear-gradient(
+    90deg,
+    color(Very-dark-blue),
+    color(Very-dark-desaturated-blue)
+  );
+  max-height: 315px;
+  border-radius: 0 $block-border-radius 0 $block-border-radius;
+
+  h3 {
+    color: color(White);
+    font-size: 30px;
+  }
+
+  p {
+    color: color(Grayish-blue);
+  }
+
+  img {
+    width: 450px;
+    margin: 0 50px;
   }
 }
 
@@ -150,14 +214,16 @@ body {
 
 .page {
   @include flex(column, flex-start, center);
+  width: 100%;
   background-color: color(White);
+  overflow: hidden;
 }
 
 .intro {
   @include flex(column, flex-start, center);
   @include section();
   background: linear-gradient(90deg, color(Very-light-red), color(Light-red));
-  border-radius: 0 0 0 90px;
+  border-radius: 0 0 0 $block-border-radius;
   padding: 0 0 120px 0;
 
   &__heading {
@@ -229,51 +295,31 @@ body {
 .features {
   @include flex(column, flex-start, center);
   @include section();
+  padding: 0 0 40px 0;
 
   &__section-heading {
     @include heading();
     color: color(Very-dark-blue);
-  }
-
-  &__text-block {
-    @include flex(column, flex-start, flex-start);
-
-    h3 {
-      @include heading();
-    }
-
-    p {
-      @include paragraph();
-    }
-  }
-
-  &__single-feature {
-    @include feature();
-    background: linear-gradient(
-      90deg,
-      color(Very-dark-blue),
-      color(Very-dark-desaturated-blue)
-    );
-
-    h3 {
-      color: color(White);
-    }
-
-    p {
-      color: color(Grayish-blue);
-    }
+    font-size: 35px;
+    transform: translate(0, 92px);
   }
 
   &__double-feature {
     @include feature();
+    @include feature--double();
+  }
 
-    h3 {
-      color: color(Very-dark-blue);
-    }
+  &__text-container {
+    @include flex(column, space-around, flex-start);
+  }
 
-    p {
-      color: color(Very-dark-grayish-blue);
-    }
+  &__text-block {
+    @include text-block();
+  }
+
+  &__single-feature {
+    @include feature();
+    @include feature--single();
   }
 }
 

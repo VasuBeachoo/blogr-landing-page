@@ -33,7 +33,9 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: 100%;
   background-color: white;
+  overflow: hidden;
 }
 
 .intro {
@@ -71,7 +73,7 @@ body {
 .intro__paragraph {
   font-family: "Ubuntu", sans-serif;
   font-weight: 400;
-  margin: 0;
+  max-width: 480px;
   color: white;
   opacity: 0.7;
   font-size: 18px;
@@ -307,6 +309,7 @@ body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   width: 100%;
+  padding: 0 0 40px 0;
 }
 
 .features__section-heading {
@@ -314,6 +317,68 @@ body {
   font-weight: 600;
   margin: 0;
   color: #1f3f5b;
+  font-size: 35px;
+  -webkit-transform: translate(0, 92px);
+          transform: translate(0, 92px);
+}
+
+.features__double-feature {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  margin: 40px 0;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  width: 155%;
+}
+
+.features__double-feature--normal-dir {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.features__double-feature--reverse-dir {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+
+.features__double-feature h3 {
+  color: #1f3f5b;
+  font-size: 23px;
+}
+
+.features__double-feature p {
+  color: #4b5862;
+  margin: 13px 5px 52px;
+}
+
+.features__double-feature img {
+  width: 750px;
+  margin: 0 9vw;
+}
+
+.features__text-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
 .features__text-block {
@@ -341,21 +406,29 @@ body {
 .features__text-block p {
   font-family: "Ubuntu", sans-serif;
   font-weight: 400;
-  margin: 0;
+  max-width: 480px;
+  font-size: 15px;
+  opacity: 0.8;
+  letter-spacing: 0.5px;
+  line-height: 25px;
 }
 
 .features__single-feature {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  margin: 40px 0;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   background: -webkit-gradient(linear, left top, right top, from(#1f3f5b), to(#3f4164));
   background: linear-gradient(90deg, #1f3f5b, #3f4164);
+  max-height: 315px;
+  border-radius: 0 90px 0 90px;
 }
 
 .features__single-feature--normal-dir {
@@ -374,44 +447,16 @@ body {
 
 .features__single-feature h3 {
   color: white;
+  font-size: 30px;
 }
 
 .features__single-feature p {
   color: #c8c8cb;
 }
 
-.features__double-feature {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-}
-
-.features__double-feature--normal-dir {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-}
-
-.features__double-feature--reverse-dir {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: reverse;
-      -ms-flex-direction: row-reverse;
-          flex-direction: row-reverse;
-}
-
-.features__double-feature h3 {
-  color: #1f3f5b;
-}
-
-.features__double-feature p {
-  color: #4b5862;
+.features__single-feature img {
+  width: 450px;
+  margin: 0 50px;
 }
 
 .footer {
@@ -453,14 +498,14 @@ body {
 .footer__column-title {
   font-family: "Ubuntu", sans-serif;
   font-weight: 400;
-  margin: 0;
+  max-width: 480px;
   color: white;
 }
 
 .footer__link {
   font-family: "Ubuntu", sans-serif;
   font-weight: 400;
-  margin: 0;
+  max-width: 480px;
   color: #c8c8cb;
 }
 /*# sourceMappingURL=style.css.map */
