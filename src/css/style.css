@@ -195,7 +195,6 @@ body {
 
 .header__dropdown-title {
   font-family: "Ubuntu", sans-serif;
-  font-weight: 500;
   letter-spacing: 0.2px;
   margin: 0;
   -webkit-transition: 0.2s;
@@ -203,6 +202,7 @@ body {
   color: white;
   opacity: 0.7;
   font-size: 16px;
+  font-weight: 500;
   margin: 0 6px 0 0;
 }
 
@@ -235,7 +235,6 @@ body {
 
 .header__link {
   font-family: "Ubuntu", sans-serif;
-  font-weight: 500;
   letter-spacing: 0.2px;
   margin: 0;
   -webkit-transition: 0.2s;
@@ -243,6 +242,7 @@ body {
   color: white;
   opacity: 0.7;
   font-size: 16px;
+  font-weight: 500;
 }
 
 .header__link:hover {
@@ -477,6 +477,8 @@ body {
           box-sizing: border-box;
   width: 100%;
   background-color: #25252d;
+  border-radius: 0 90px 0 0;
+  padding: 70px 12vw 45px;
 }
 
 .footer__column {
@@ -495,17 +497,32 @@ body {
           align-items: flex-start;
 }
 
+.footer__logo {
+  width: 92px;
+}
+
 .footer__column-title {
   font-family: "Ubuntu", sans-serif;
   font-weight: 400;
   max-width: 480px;
   color: white;
+  font-size: 17px;
 }
 
 .footer__link {
   font-family: "Ubuntu", sans-serif;
-  font-weight: 400;
-  max-width: 480px;
+  letter-spacing: 0.2px;
+  margin: 0;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
   color: #c8c8cb;
+  opacity: 0.8;
+  font-size: 15px;
+  margin: 0 0 15px 0;
+}
+
+.footer__link:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
 /*# sourceMappingURL=style.css.map */

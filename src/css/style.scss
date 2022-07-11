@@ -54,7 +54,6 @@ $block-border-radius: 90px;
 
 @mixin link() {
   font-family: $body-font;
-  font-weight: 500;
   letter-spacing: 0.2px;
   margin: 0;
   transition: 0.2s;
@@ -69,6 +68,7 @@ $block-border-radius: 90px;
   color: color(White);
   opacity: 0.7;
   font-size: 16px;
+  font-weight: 500;
 
   &:hover {
     opacity: 1;
@@ -327,18 +327,28 @@ body {
   @include flex(row, space-between, flex-start);
   @include section();
   background-color: color(Very-dark-black-blue);
+  border-radius: 0 $block-border-radius 0 0;
+  padding: 70px 12vw 45px;
 
   &__column {
     @include flex(column, flex-start, flex-start);
   }
 
+  &__logo {
+    width: 92px;
+  }
+
   &__column-title {
     @include paragraph();
     color: color(White);
+    font-size: 17px;
   }
 
   &__link {
-    @include paragraph();
+    @include link();
     color: color(Grayish-blue);
+    opacity: 0.8;
+    font-size: 15px;
+    margin: 0 0 15px 0;
   }
 }
