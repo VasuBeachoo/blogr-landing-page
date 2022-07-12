@@ -18,12 +18,15 @@ $colors: (
   Light-red: hsl(353, 100%, 62%),
   Very-dark-gray-blue: hsl(237, 17%, 21%),
   Very-dark-desaturated-blue: hsl(237, 23%, 32%),
+  Light-grayish-blue: hsl(0, 0%, 88%),
 );
 
 $heading-font: "Overpass", sans-serif;
 $body-font: "Ubuntu", sans-serif;
 
 $block-border-radius: 90px;
+
+$mobile-width: 1150px;
 
 ///////////////////////////////////////
 // MIXINS /////////////////////////////
@@ -44,12 +47,21 @@ $block-border-radius: 90px;
   font-family: $heading-font;
   font-weight: 600;
   margin: 0;
+
+  @include mobile() {
+    width: 80%;
+  }
 }
 
 @mixin paragraph() {
   font-family: $body-font;
   font-weight: 400;
   max-width: 480px;
+
+  @include mobile() {
+    width: 80%;
+    line-height: 25px;
+  }
 }
 
 @mixin link() {
@@ -73,6 +85,11 @@ $block-border-radius: 90px;
 
   &:hover {
     opacity: 1;
+  }
+
+  @include mobile() {
+    color: color(Very-dark-grayish-blue);
+    font-size: 17px;
   }
 }
 
@@ -108,6 +125,10 @@ $block-border-radius: 90px;
       @include btn--solid();
     }
   }
+
+  &--gradient {
+    @include btn--gradient();
+  }
 }
 
 @mixin btn--solid() {
@@ -118,6 +139,16 @@ $block-border-radius: 90px;
 @mixin btn--light() {
   background: none;
   color: color(White);
+}
+
+@mixin btn--gradient() {
+  background: linear-gradient(90deg, color(Very-light-red), color(Light-red));
+  color: color(White);
+  padding: 12px 10px;
+
+  &:hover {
+    opacity: 0.7;
+  }
 }
 
 @mixin feature() {
@@ -153,6 +184,13 @@ $block-border-radius: 90px;
     width: 750px;
     margin: 0 9vw;
   }
+
+  @include mobile() {
+    img {
+      width: 360px;
+      margin: 0 0 50px 0;
+    }
+  }
 }
 
 @mixin text-block() {
@@ -168,6 +206,11 @@ $block-border-radius: 90px;
     opacity: 0.8;
     letter-spacing: 0.5px;
     line-height: 25px;
+  }
+
+  @include mobile() {
+    align-items: center;
+    text-align: center;
   }
 }
 
@@ -188,6 +231,18 @@ $block-border-radius: 90px;
 
   p {
     color: color(Grayish-blue);
+  }
+}
+
+@mixin mobile() {
+  @media (max-width: $mobile-width) {
+    @content;
+  }
+}
+
+@mixin menu-icon() {
+  &:hover {
+    cursor: pointer;
   }
 }
 
@@ -221,6 +276,7 @@ body {
   @include section();
   background: linear-gradient(90deg, color(Very-light-red), color(Light-red));
   border-radius: 0 0 0 $block-border-radius;
+  text-align: center;
   padding: 0 0 120px 0;
 
   &__heading {
@@ -270,9 +326,18 @@ body {
     margin: 0 70px 0 0;
   }
 
+  &__nav-menu {
+    @include flex(row, flex-start, center);
+    width: 100%;
+  }
+
   &__dropdowns {
     @include flex(row, space-between, center);
     width: 300px;
+  }
+
+  &__dropdown {
+    @include flex(column, flex-start, flex-start);
   }
 
   &__dropdown-container {
@@ -290,9 +355,11 @@ body {
   &__dropdown-menu {
     background-color: color(White);
     position: absolute;
-    transform: translate(-28px, 10px);
+    transform: translate(-28px, 28px);
     min-width: 90px;
     border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+      rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
     padding: 30px 30px 20px;
   }
 
@@ -310,6 +377,10 @@ body {
 
   &__up-arrow {
     transform: rotate(180deg);
+  }
+
+  &__divider {
+    display: none;
   }
 
   &__links {
@@ -420,5 +491,155 @@ body {
     opacity: 0.8;
     font-size: 15px;
     margin: 0 0 15px 0;
+  }
+}
+
+@include mobile() {
+  .intro {
+    &__heading {
+      font-size: 42px;
+      margin: 40px 0 30px 0;
+    }
+
+    &__paragraph {
+      line-height: 28px;
+    }
+  }
+
+  .header {
+    justify-content: space-between;
+    padding: 70px 10vw 40px;
+
+    &__menu-open {
+      @include menu-icon();
+    }
+
+    &__menu-close {
+      @include menu-icon();
+    }
+
+    &__nav-menu {
+      @include flex(column, flex-start, center);
+      position: absolute;
+      top: 130px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      background-color: color(White);
+      width: 80%;
+      border-radius: 7px;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px,
+        rgba(0, 0, 0, 0.23) 0px 3px 6px;
+      padding: 30px 20px 38px;
+      margin: 0 auto 0;
+    }
+
+    &__dropdowns {
+      @include flex(column, flex-start, center);
+      width: 100%;
+    }
+
+    &__dropdown {
+      align-items: center;
+      width: 100%;
+    }
+
+    &__dropdown-container {
+      justify-content: center;
+      margin: 10px 0;
+    }
+
+    &__dropdown-title {
+      padding: 0;
+      margin: 0 6px 0 0;
+    }
+
+    &__dropdown-menu {
+      align-items: center;
+      position: static;
+      text-align: center;
+      transform: none;
+      background-color: color(Light-grayish-blue);
+      width: 80%;
+      box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+        rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+      padding: 30px 0 15px;
+      margin: 25px 0 23px;
+    }
+
+    &__dropdown-link {
+      color: color(Very-dark-grayish-blue);
+      width: 100%;
+      font-size: 16px;
+      margin: 0 0 15px 0;
+    }
+
+    &__divider {
+      display: block;
+      width: 100%;
+      opacity: 0.5;
+      margin: 18px 0 0 0;
+    }
+
+    &__links {
+      @include flex(column, flex-start, center);
+      width: auto;
+      margin: 0;
+    }
+
+    &__link {
+      color: color(Very-dark-grayish-blue);
+      font-size: 18px;
+      margin: 22px 0 0 0;
+    }
+
+    &__btn {
+      margin: 15px 0 0 0;
+    }
+  }
+
+  .features {
+    &__section-heading {
+      text-align: center;
+      margin: 0 0 100px 0;
+    }
+
+    &__double-feature {
+      @include flex(column-reverse, flex-start, center);
+    }
+
+    &__single-feature {
+      @include flex(column-reverse, flex-start, center);
+      padding: 150px 0 50px 0;
+      margin: 160px 0 20px 0;
+    }
+
+    &__single-img {
+      width: 390px;
+    }
+
+    &__bg-container {
+      height: 462px;
+      transform: rotate(180deg);
+    }
+
+    &__bg-img {
+      width: 500px;
+      transform: translate(100px, 100px);
+    }
+  }
+
+  .footer {
+    @include flex(column, flex-start, center);
+    padding: 75px 0 30px;
+
+    &__logo {
+      margin: 0 0 35px 0;
+    }
+
+    &__column {
+      align-items: center;
+      margin: 0 0 10px 0;
+    }
   }
 }

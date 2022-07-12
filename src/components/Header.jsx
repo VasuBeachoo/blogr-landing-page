@@ -1,29 +1,36 @@
-import Dropdown from "./Dropdown";
-import Link from "./Link";
-import Button from "./Button";
+import NavMenu from "./NavMenu";
 import logo from "../assets/logo.svg";
+import menuOpenIcon from "../assets/icon-hamburger.svg";
+import menuCloseIcon from "../assets/icon-close.svg";
 
-const Header = ({ dropdowns, btnType }) => {
+const Header = ({ dropdowns, mobile, menu, setMenu }) => {
   const block = "header";
-  let key = 0;
 
   return (
     <header className={`${block}`}>
       <img src={logo} alt="logo" className={`${block}__logo`} />
-      <div className={`${block}__dropdowns`}>
-        {dropdowns.map((dropdown) => (
-          <Dropdown
-            key={key++}
-            block={block}
-            title={dropdown.title}
-            dropdownLinks={dropdown.links}
+      {mobile ? (
+        menu ? (
+          <>
+            <img
+              src={menuCloseIcon}
+              alt="close-menu"
+              className={`${block}__menu-close`}
+              onClick={() => setMenu(false)}
+            />
+            <NavMenu dropdowns={dropdowns} btnType="gradient" type="expand" />
+          </>
+        ) : (
+          <img
+            src={menuOpenIcon}
+            alt="open-menu"
+            className={`${block}__menu-open`}
+            onClick={() => setMenu(true)}
           />
-        ))}
-      </div>
-      <div className={`${block}__links`}>
-        <Link className={`${block}__link`} text="Login" />
-        <Button block={block} text="Sign Up" type={btnType} />
-      </div>
+        )
+      ) : (
+        <NavMenu dropdowns={dropdowns} btnType="solid" type="hover" />
+      )}
     </header>
   );
 };

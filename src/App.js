@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Button from "./components/Button";
 import SingleFeature from "./components/SingleFeature";
@@ -11,6 +12,9 @@ import circlePattern from "./assets/bg-pattern-circles.svg";
 import laptopDesktopImg from "./assets/illustration-laptop-desktop.svg";
 
 const App = () => {
+  const [mobile, setMobile] = useState(false);
+  const [menu, setMenu] = useState(false);
+
   const SINGLE_FEATURE = "single";
   const DOUBLE_FEATURE = "double";
   const NORMAL_DIRECTION = "normal-dir";
@@ -106,11 +110,30 @@ const App = () => {
     });
   }
 
+  function handleResize() {
+    if (window.innerWidth <= 1150) setMobile(true);
+    else {
+      setMenu(false);
+      setMobile(false);
+    }
+  }
+
+  useEffect(() => {
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  });
+
   return (
     <div className="page-container">
       <div className="page">
         <section className="intro">
-          <Header dropdowns={navLinks} btnType={SOLID_BTN} />
+          <Header
+            dropdowns={navLinks}
+            mobile={mobile}
+            menu={menu}
+            setMenu={setMenu}
+          />
           <h1 className="intro__heading">A modern publishing platform</h1>
           <p className="intro__paragraph">
             Grow your audience and build your online brand
