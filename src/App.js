@@ -4,8 +4,10 @@ import SingleFeature from "./components/SingleFeature";
 import DoubleFeature from "./components/DoubleFeature";
 import Footer from "./components/Footer";
 import "./css/style.css";
+import introBg from "./assets/bg-pattern-intro-desktop.svg";
 import editorDesktopImg from "./assets/illustration-editor-desktop.svg";
 import phonesDesktopImg from "./assets/illustration-phones.svg";
+import circlePattern from "./assets/bg-pattern-circles.svg";
 import laptopDesktopImg from "./assets/illustration-laptop-desktop.svg";
 
 const App = () => {
@@ -52,6 +54,7 @@ const App = () => {
       imgSrc: phonesDesktopImg,
       imgAlt: "phones-desktop",
       direction: REVERSE_DIRECTION,
+      bgImg: circlePattern,
     },
     {
       type: DOUBLE_FEATURE,
@@ -82,6 +85,7 @@ const App = () => {
             imgSrc={feature.imgSrc}
             imgAlt={feature.imgAlt}
             direction={feature.direction}
+            bgImg={feature.bgImg}
           />
         );
       else if (type === DOUBLE_FEATURE)
@@ -115,6 +119,7 @@ const App = () => {
             <Button block="intro" text="Start For Free" type={SOLID_BTN} />
             <Button block="intro" text="Learn More" type={LIGHT_BTN} />
           </div>
+          <img src={introBg} alt="intro-background" className="intro__bg-img" />
         </section>
         <section className="features">
           <h2 className="features__section-heading">Designed for the future</h2>

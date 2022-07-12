@@ -189,11 +189,6 @@ $block-border-radius: 90px;
   p {
     color: color(Grayish-blue);
   }
-
-  img {
-    width: 450px;
-    margin: 0 50px;
-  }
 }
 
 ///////////////////////////////////////
@@ -233,6 +228,7 @@ body {
     color: color(White);
     font-size: 47px;
     margin: 40px 0 5px 0;
+    z-index: 1;
   }
 
   &__paragraph {
@@ -241,6 +237,7 @@ body {
     opacity: 0.7;
     font-size: 18px;
     margin: 0 0 40px 0;
+    z-index: 1;
   }
 
   &__btn-container {
@@ -250,6 +247,15 @@ body {
 
   &__btn {
     @include btn();
+    z-index: 1;
+  }
+
+  &__bg-img {
+    position: absolute;
+    top: -85vh;
+    right: 0;
+    width: 110vw;
+    opacity: 0.5;
   }
 }
 
@@ -257,6 +263,7 @@ body {
   @include flex(row, flex-start, center);
   @include section();
   padding: 50px 110px;
+  z-index: 2;
 
   &__logo {
     width: 90px;
@@ -324,7 +331,9 @@ body {
 .features {
   @include flex(column, flex-start, center);
   @include section();
+  background-color: color(White);
   padding: 0 0 40px 0;
+  z-index: 1;
 
   &__section-heading {
     @include heading();
@@ -346,9 +355,41 @@ body {
     @include text-block();
   }
 
+  &__heading {
+    z-index: 2;
+  }
+
+  &__paragraph {
+    z-index: 2;
+  }
+
+  &__img {
+    z-index: 2;
+  }
+
   &__single-feature {
     @include feature();
     @include feature--single();
+    position: relative;
+  }
+
+  &__single-img {
+    width: 450px;
+    margin: 0 50px;
+    z-index: 2;
+  }
+
+  &__bg-container {
+    @include flex(row, center, flex-start);
+    position: absolute;
+    overflow: hidden;
+    height: 315px;
+    width: 100%;
+  }
+
+  &__bg-img {
+    width: 650px;
+    transform: translate(-270px, -300px);
   }
 }
 

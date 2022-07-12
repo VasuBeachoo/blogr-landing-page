@@ -68,6 +68,7 @@ body {
   color: white;
   font-size: 47px;
   margin: 40px 0 5px 0;
+  z-index: 1;
 }
 
 .intro__paragraph {
@@ -78,6 +79,7 @@ body {
   opacity: 0.7;
   font-size: 18px;
   margin: 0 0 40px 0;
+  z-index: 1;
 }
 
 .intro__btn-container {
@@ -113,6 +115,7 @@ body {
   padding: 8px 0;
   -webkit-transition: 0.25s;
   transition: 0.25s;
+  z-index: 1;
 }
 
 .intro__btn:hover {
@@ -139,6 +142,14 @@ body {
   color: #ff3d54;
 }
 
+.intro__bg-img {
+  position: absolute;
+  top: -85vh;
+  right: 0;
+  width: 110vw;
+  opacity: 0.5;
+}
+
 .header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -157,6 +168,7 @@ body {
           box-sizing: border-box;
   width: 100%;
   padding: 50px 110px;
+  z-index: 2;
 }
 
 .header__logo {
@@ -369,7 +381,9 @@ body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   width: 100%;
+  background-color: white;
   padding: 0 0 40px 0;
+  z-index: 1;
 }
 
 .features__section-heading {
@@ -473,6 +487,18 @@ body {
   line-height: 25px;
 }
 
+.features__heading {
+  z-index: 2;
+}
+
+.features__paragraph {
+  z-index: 2;
+}
+
+.features__img {
+  z-index: 2;
+}
+
 .features__single-feature {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -489,6 +515,7 @@ body {
   background: linear-gradient(90deg, #1f3f5b, #3f4164);
   max-height: 315px;
   border-radius: 0 90px 0 90px;
+  position: relative;
 }
 
 .features__single-feature--normal-dir {
@@ -514,9 +541,36 @@ body {
   color: #c8c8cb;
 }
 
-.features__single-feature img {
+.features__single-img {
   width: 450px;
   margin: 0 50px;
+  z-index: 2;
+}
+
+.features__bg-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  position: absolute;
+  overflow: hidden;
+  height: 315px;
+  width: 100%;
+}
+
+.features__bg-img {
+  width: 650px;
+  -webkit-transform: translate(-270px, -300px);
+          transform: translate(-270px, -300px);
 }
 
 .footer {
