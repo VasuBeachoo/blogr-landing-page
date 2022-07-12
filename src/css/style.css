@@ -99,6 +99,10 @@ body {
 
 .intro__btn {
   all: unset;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   text-align: center;
   font-family: "Overpass", sans-serif;
   font-size: 16px;
@@ -174,7 +178,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 290px;
+  width: 300px;
 }
 
 .header__dropdown-container {
@@ -191,9 +195,14 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
 }
 
 .header__dropdown-title {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   font-family: "Ubuntu", sans-serif;
   letter-spacing: 0.2px;
   margin: 0;
@@ -203,7 +212,8 @@ body {
   opacity: 0.7;
   font-size: 16px;
   font-weight: 500;
-  margin: 0 6px 0 0;
+  padding: 0 0 10px 0;
+  margin: 0 6px -10px 0;
 }
 
 .header__dropdown-title:hover {
@@ -213,6 +223,48 @@ body {
 
 .header__dropdown-title:hover {
   opacity: 1;
+}
+
+.header__dropdown-menu {
+  background-color: white;
+  position: absolute;
+  -webkit-transform: translate(-28px, 10px);
+          transform: translate(-28px, 10px);
+  min-width: 90px;
+  border-radius: 5px;
+  padding: 30px 30px 20px;
+}
+
+.header__dropdown-link {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  font-family: "Ubuntu", sans-serif;
+  letter-spacing: 0.2px;
+  margin: 0;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  font-size: 15px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 0 10px 0;
+}
+
+.header__dropdown-link:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.header__dropdown-link:hover {
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.header__up-arrow {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
 }
 
 .header__links {
@@ -234,6 +286,10 @@ body {
 }
 
 .header__link {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   font-family: "Ubuntu", sans-serif;
   letter-spacing: 0.2px;
   margin: 0;
@@ -256,6 +312,10 @@ body {
 
 .header__btn {
   all: unset;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   text-align: center;
   font-family: "Overpass", sans-serif;
   font-size: 16px;
@@ -510,6 +570,10 @@ body {
 }
 
 .footer__link {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   font-family: "Ubuntu", sans-serif;
   letter-spacing: 0.2px;
   margin: 0;

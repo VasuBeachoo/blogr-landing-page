@@ -12,11 +12,16 @@ const Header = ({ dropdowns, btnType }) => {
       <img src={logo} alt="logo" className={`${block}__logo`} />
       <div className={`${block}__dropdowns`}>
         {dropdowns.map((dropdown) => (
-          <Dropdown key={key++} block={block} title={dropdown.title} />
+          <Dropdown
+            key={key++}
+            block={block}
+            title={dropdown.title}
+            dropdownLinks={dropdown.links}
+          />
         ))}
       </div>
       <div className={`${block}__links`}>
-        <Link block={block} text="Login" />
+        <Link className={`${block}__link`} text="Login" />
         <Button block={block} text="Sign Up" type={btnType} />
       </div>
     </header>

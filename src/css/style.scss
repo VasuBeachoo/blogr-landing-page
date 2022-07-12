@@ -53,6 +53,7 @@ $block-border-radius: 90px;
 }
 
 @mixin link() {
+  user-select: none;
   font-family: $body-font;
   letter-spacing: 0.2px;
   margin: 0;
@@ -77,6 +78,7 @@ $block-border-radius: 90px;
 
 @mixin btn() {
   all: unset;
+  user-select: none;
   text-align: center;
   font-family: $heading-font;
   font-size: 16px;
@@ -263,17 +265,44 @@ body {
 
   &__dropdowns {
     @include flex(row, space-between, center);
-    width: 290px;
+    width: 300px;
   }
 
   &__dropdown-container {
     @include flex(row, flex-start, center);
+    position: relative;
   }
 
   &__dropdown-title {
     @include link();
     @include link--header();
-    margin: 0 6px 0 0;
+    padding: 0 0 10px 0;
+    margin: 0 6px -10px 0;
+  }
+
+  &__dropdown-menu {
+    background-color: color(White);
+    position: absolute;
+    transform: translate(-28px, 10px);
+    min-width: 90px;
+    border-radius: 5px;
+    padding: 30px 30px 20px;
+  }
+
+  &__dropdown-link {
+    @include link();
+    font-size: 15px;
+    width: fit-content;
+    margin: 0 0 10px 0;
+
+    &:hover {
+      text-decoration: none;
+      font-weight: 500;
+    }
+  }
+
+  &__up-arrow {
+    transform: rotate(180deg);
   }
 
   &__links {

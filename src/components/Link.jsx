@@ -1,5 +1,5 @@
-const Link = ({ block, text }) => {
-  return <p className={`${block}__link`}>{text}</p>;
+const Link = ({ className, text }) => {
+  return <p className={className}>{text}</p>;
 };
 
 export default Link;

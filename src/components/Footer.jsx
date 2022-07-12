@@ -12,7 +12,7 @@ const Footer = ({ linkColumns }) => {
         <div key={key++} className={`${block}__column`}>
           <p className={`${block}__column-title`}>{column.title}</p>
           {column.links.map((link) => (
-            <Link key={key++} block={block} text={link} />
+            <Link key={key++} className={`${block}__link`} text={link} />
           ))}
         </div>
       ))}
